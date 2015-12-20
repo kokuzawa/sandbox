@@ -6,7 +6,7 @@
     <script>
         function startup() {
             var eventList = document.getElementById("eventList");
-            var eventSource = new EventSource("http://localhost:8080/sse-example/api/events");
+            var eventSource = new EventSource("http://localhost:8080/sse-example/api/sse/events");
             eventSource.addEventListener("message-to-client", function (e) {
                 var newElement = document.createElement("li");
                 newElement.innerHTML = "message: " + e.data;
