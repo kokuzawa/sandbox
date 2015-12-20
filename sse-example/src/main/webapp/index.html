@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SSE Example</title>
+    <script>
+        function startup() {
+            var eventList = document.getElementById("eventList");
+            var eventSource = new EventSource("http://localhost:8080/sse-example/api/events");
+            eventSource.addEventListener("message-to-client", function (e) {
+                var newElement = document.createElement("li");
+                newElement.innerHTML = "message: " + e.data;
+                eventList.appendChild(newElement);
+            });
+        }
+    </script>
+</head>
+<body onload="startup()">
+    <h1>イベント表示:</h1>
+    <ul id="eventList"></ul>
+</body>
+</html>
