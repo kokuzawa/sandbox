@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.1">
+    <persistence-unit name="AppPU" transaction-type="JTA">
+        <jta-data-source>java:jboss/datasources/ExampleDS</jta-data-source>
+        <class>org.katsumi.entity.Accounts</class>
+        <class>org.katsumi.entity.Roles</class>
+        <properties>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="javax.persistence.schema-generation.database.action"
+                      value="drop-and-create"/>
+            <property name="javax.persistence.sql-load-script-source"
+                      value="META-INF/sql/data.sql" />
+        </properties>
+    </persistence-unit>
+</persistence>
