@@ -11,6 +11,7 @@
     <modules>
         <module>sse-example</module>
         <module>roles-example</module>
+        <module>docker-wildfly-example</module>
     </modules>
 
     <properties>
