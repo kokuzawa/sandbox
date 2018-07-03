@@ -12,6 +12,7 @@
         <module>sse-example</module>
         <module>roles-example</module>
         <module>docker-wildfly-example</module>
+        <module>websocket-example</module>
     </modules>
 
     <properties>

@@ -1,0 +1,15 @@
+= Websocket Example of Java Server Faces
+
+JSFによるWebsocketのサンプルです。 +
+下記の環境で動作確認をしています。
+
+* OS: Mac OSX 10.11.1
+* Java: Java(TM) SE Runtime Environment (build 1.8.0_60-b27)
+* APサーバ: WildFly 13.0.0.Final
+* ブラウザ: Safari 11.1.1
+
+WildFlyは下記オプションを指定しています。
+
+```
+-Dee8.preview.mode=true
+```
