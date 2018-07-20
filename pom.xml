@@ -13,6 +13,8 @@
         <module>roles-example</module>
         <module>docker-wildfly-example</module>
         <module>websocket-example</module>
+        <module>jsonb-example</module>
+        <module>jsonb-example</module>
     </modules>
 
     <properties>
