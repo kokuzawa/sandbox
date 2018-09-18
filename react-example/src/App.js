@@ -1,5 +1,14 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import {Toolbar} from 'primereact/toolbar';
+import {InputText} from 'primereact/inputtext';
+import {Button} from 'primereact/button';
+import {Growl} from 'primereact/growl';
+import {DataTable} from 'primereact/datatable';
+import {Column} from 'primereact/column';
+import 'primereact/resources/themes/nova-light/theme.css';
+import 'primereact/resources/primereact.min.css';
+import 'primeicons/primeicons.css';
+import 'primeflex/primeflex.css';
 import './App.css';
 
 class App extends Component {
@@ -8,7 +17,7 @@ class App extends Component {
         super(props);
         this.state = {
             zipcode: '',
-            address: ''
+            addresses: []
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -26,8 +35,18 @@ class App extends Component {
                 return response.json();
             })
             .then((myJson) => {
-                console.log(JSON.stringify(myJson));
-                this.setState({address: myJson.data.fullAddress});
+                if (200 === myJson.code) {
+                    myJson.data.zipcode = this.state.zipcode;
+                    let addresses = this.state.addresses;
+                    addresses.unshift(myJson.data);
+                    this.setState({zipcode: '', addresses: addresses});
+                }
+                else if (404 === myJson.code) {
+                    this.growl.show({severity: 'error', summary: myJson.code, detail: 'Not found.'});
+                }
+                else {
+                    this.growl.show({severity: 'error', summary: myJson.code});
+                }
             });
         e.preventDefault();
     }
@@ -35,17 +54,26 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-                <header className="App-header">
-                    <img src={logo} className="App-logo" alt="logo"/>
-                    <h1 className="App-title">Welcome to React</h1>
+                <header>
+                    <form onSubmit={this.handleSubmit}>
+                        <Growl ref={(el) => this.growl = el} />
+                        <Toolbar>
+                            <div className="p-toolbar-group-right">
+                                <div className="p-inputgroup">
+                                    <span className="p-inputgroup-addon">郵便番号</span>
+                                    <InputText value={this.state.zipcode} onChange={this.handleChange}/>
+                                    <Button icon="pi pi-search"/>
+                                </div>
+                            </div>
+                        </Toolbar>
+                    </form>
                 </header>
-                <form onSubmit={this.handleSubmit}>
-                    <p className="App-intro">
-                        <input type="text" value={this.state.zipcode} onChange={this.handleChange}/>
-                        <input type="submit" value="検索" />
-                    </p>
-                </form>
-                <p>{this.state.address}</p>
+                <article>
+                    <DataTable value={this.state.addresses}>
+                        <Column field="zipcode" header="郵便番号" sortable={true} style={{width: '10em'}}/>
+                        <Column field="fullAddress" header="住所"/>
+                    </DataTable>
+                </article>
             </div>
         );
     }
