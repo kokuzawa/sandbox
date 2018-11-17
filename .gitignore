@@ -1,0 +1,11 @@
+.idea/
+target/
+*.iml
+docker-wildfly-example/container_settings.json
+docker-wildfly-example/.dockerignore
+docker-wildfly-example/src/main/resources/
+sse-example/src/main/resources/
+websocket-example/src/main/resources/
+docker-wildfly-example/src/test/
+roles-example/src/test/
+sse-example/src/test/
