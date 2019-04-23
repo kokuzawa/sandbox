@@ -1,0 +1,5 @@
+= Validation Json to Enum Convert
+
+JAX-RSでJSONプロパティをEnumプロパティに変換する際にBean Validationで値の検証するサンプル。
+
+link:https://kokuzawa.github.io/blog/2018/11/22/validation-json-to-enum-convert/[]

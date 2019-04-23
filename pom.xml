@@ -14,6 +14,7 @@
         <module>docker-wildfly-example</module>
         <module>websocket-example</module>
         <module>jsonb-example</module>
+        <module>json-to-enum-example</module>
     </modules>
 
     <properties>
