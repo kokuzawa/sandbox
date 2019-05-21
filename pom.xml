@@ -15,6 +15,7 @@
         <module>websocket-example</module>
         <module>jsonb-example</module>
         <module>json-to-enum-example</module>
+        <module>thorntail-example</module>
     </modules>
 
     <properties>
