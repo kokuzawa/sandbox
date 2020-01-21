@@ -32,7 +32,6 @@ class Todos extends React.Component {
 
     componentDidMount() {
         todoStore.on("change", this.getTodos);
-        console.log("count", todoStore.listenerCount("change"));
     }
 
     componentWillUnmount() {

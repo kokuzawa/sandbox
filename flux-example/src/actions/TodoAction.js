@@ -23,6 +23,13 @@ export function createTodo(text) {
     })
 }
 
+export function deleteTodo(id) {
+    dispatcher.dispatch({
+        type: "DELETE_TODO",
+        id: id
+    })
+}
+
 export function reloadTodos() {
     // ここでデータをFETCHするが、サービスを用意していないので、
     // setTimeoutで擬似的に処理を遅延し、非同期な処理を実装する。
