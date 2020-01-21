@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+<f:view>
+    <f:metadata>
+        <f:viewParam name="text" value="#{formBean.text}"/>
+    </f:metadata>
+    <p>結果を表示：</p>
+    <h:outputText value="#{formBean.text}"/>
+</f:view>
+
+</html>
